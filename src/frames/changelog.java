@@ -124,7 +124,7 @@ public class changelog extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(255, 51, 51));
         jTextArea1.setRows(5);
-        jTextArea1.setText("27/jun/2019\n+New options to generate key\n-Delete no-implemented crypt options\n-Delete unused tables [tb1,2,3,4,5]\n+Change website\n+Implemented changelog view\n+Add tittle to message windows");
+        jTextArea1.setText("27/jun/2019\n+New options to generate key\n-Delete no-implemented crypt options\n-Delete unused tables [tb1,2,3,4,5]\n+Change website\n+Implemented changelog view\n+Add tittle to message windows\n\n12/dec/2020\n+Restructure folders\n+Delete unused variables\n+Encapsulation");
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

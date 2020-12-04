@@ -23,14 +23,14 @@ public tablaM mainWin;
     }
         public messageChoice(tablaM WW, String message) {
         initComponents();
-        mainWin = WW;
+        this.mainWin = WW;
         
-        aceptBtn.setContentAreaFilled(false);
-        aceptBtn.setOpaque(true);
-                aceptBtn1.setContentAreaFilled(false);
-        aceptBtn1.setOpaque(true);
+        this.aceptBtn.setContentAreaFilled(false);
+        this.aceptBtn.setOpaque(true);
+                this.aceptBtn1.setContentAreaFilled(false);
+        this.aceptBtn1.setOpaque(true);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, (new java.awt.Color(255, 255, 255))));
-        messageText.setText(message);
+        this.messageText.setText(message);
     }
 
     /**
@@ -196,7 +196,7 @@ public tablaM mainWin;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
-        jLabel4.setEnabled(false);
+        this.jLabel4.setEnabled(false);
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -204,7 +204,7 @@ public tablaM mainWin;
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        jLabel4.setEnabled(true);
+        this.jLabel4.setEnabled(true);
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void toolbarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolbarMouseDragged
@@ -212,22 +212,22 @@ public tablaM mainWin;
     }//GEN-LAST:event_toolbarMouseDragged
 
     private void toolbarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolbarMousePressed
-        x = evt.getX();
-        y = evt.getY();
+        this.x = evt.getX();
+        this.y = evt.getY();
     }//GEN-LAST:event_toolbarMousePressed
 
     private void aceptBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aceptBtnMouseMoved
-        aceptBtn.setBackground(new java.awt.Color(70, 70, 70));
+        this.aceptBtn.setBackground(new java.awt.Color(70, 70, 70));
     }//GEN-LAST:event_aceptBtnMouseMoved
 
     private void aceptBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aceptBtnMouseExited
-        aceptBtn.setBackground(new java.awt.Color(0, 0, 0));
+        this.aceptBtn.setBackground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_aceptBtnMouseExited
 
     private void aceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptBtnActionPerformed
       
-       tableController tableController =  new tableController(mainWin.getTablecontent6());
-       tableController.saveAllTable();
+       tableController tableController =  new tableController();
+       tableController.saveAllTable(this.mainWin.getTablecontent6());
         System.exit(0);
    
     }//GEN-LAST:event_aceptBtnActionPerformed
@@ -236,7 +236,7 @@ public tablaM mainWin;
         aceptBtn1.setBackground(new java.awt.Color(70, 70, 70));    }//GEN-LAST:event_aceptBtn1MouseMoved
 
     private void aceptBtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aceptBtn1MouseExited
-        aceptBtn1.setBackground(new java.awt.Color(0, 0, 0));
+        this.aceptBtn1.setBackground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_aceptBtn1MouseExited
 
     private void aceptBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptBtn1ActionPerformed

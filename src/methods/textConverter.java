@@ -32,30 +32,17 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class textConverter {
 
-    public JTextField fileNameBox;
-    public JScrollPane jScrollPane6;
-    public JTable tablecontent6;
-    public JTextArea textArea;
-    public JProgressBar jProgressBar1;
-
     public textConverter() {
 
     }
 
-    public textConverter(JTextField fileNameBox, JScrollPane jScrollPane6, JTable tablecontent6, JTextArea textArea, JProgressBar jProgressBar1) {
-        this.fileNameBox = fileNameBox;
-        this.jScrollPane6 = jScrollPane6;
-        this.tablecontent6 = tablecontent6;
-        this.textArea = textArea;
-        this.jProgressBar1 = jProgressBar1;
-    }
 
     public void messageText(String msg) {
         messageBox messageBox = new messageBox(msg);
         messageBox.setVisible(true);
     }
 
-    public void progressBar(String message) {
+    public void progressBar(String message, JProgressBar jProgressBar1) {
         int progress = 0;
         Random random = new Random();
         while (progress < 100) {
@@ -78,7 +65,7 @@ public class textConverter {
 
     }
 
-    public void saveChooserFile() {
+    public void saveChooserFile(JTextField fileNameBox, JTextArea textArea, JProgressBar jProgressBar1) {
         if (textArea.getText().equals("")) {
             messageText("TEXT AREA EMPTY");
 
@@ -86,7 +73,7 @@ public class textConverter {
             if (fileNameBox.getText().equals("")) {
                 messageText("INVALID URL");
             } else {
-                saveTextToHex(fileNameBox.getText(), (new StringBuffer(textArea.getText())));
+                saveTextToHex(fileNameBox.getText(), (new StringBuffer(textArea.getText())), jProgressBar1);
 
                 messageText("Text saved succerfully");
 
@@ -95,12 +82,12 @@ public class textConverter {
         }
     }
 
-    public void chooserFilePasswordTable() {
+    public void chooserFilePasswordTable(JTextField fileNameBox, JScrollPane jScrollPane6, JTable tablecontent6, JProgressBar jProgressBar1, JTextArea textArea) {
         if (tablecontent6.getSelectedRowCount() >= 1) {
             String selectRow = String.valueOf(tablecontent6.getValueAt(tablecontent6.getSelectedRow(), 3));
             if (jScrollPane6.isVisible() == true && selectRow.endsWith("aoec")) {
 
-                loadHexToString("txt/" + selectRow);
+                loadHexToString("txt/" + selectRow, jProgressBar1, textArea);
                 fileNameBox.setText("txt/" + selectRow);
             } else {
                 messageText("Select AOEC file type");
@@ -111,7 +98,7 @@ public class textConverter {
 
     }
 
-    public void chooserFile() {
+    public void chooserFile(JTextField fileNameBox, JProgressBar jProgressBar1, JTextArea textArea) {
         FileNameExtensionFilter filter1 = new FileNameExtensionFilter("AOEC Encryption", "AOEC");
         JFileChooser chooser = new JFileChooser("txt");
         chooser.addChoosableFileFilter(filter1);
@@ -122,7 +109,7 @@ public class textConverter {
         String filename = f.getAbsolutePath();
         fileNameBox.setText(filename);
         if (filename.endsWith("aoec")) {
-            loadHexToString(filename);
+            loadHexToString(filename, jProgressBar1, textArea);
         } else {
 
             messageText("Select AOEC file type");
@@ -130,8 +117,8 @@ public class textConverter {
         }
     }
 
-    public void loadHexToString(String filePath) {
-        progressBar("Decrypted Complete!");
+    public void loadHexToString(String filePath, JProgressBar jProgressBar1, JTextArea textArea) {
+        progressBar("Decrypted Complete!", jProgressBar1);
         String gg = "";
         File file = new File(filePath);
 
@@ -186,8 +173,8 @@ public class textConverter {
         return sb.toString();
     }
 
-    public void saveTextToHex(String filePath, StringBuffer TXT) {
-        progressBar("Encrypted Complete!");
+    public void saveTextToHex(String filePath, StringBuffer TXT, JProgressBar jProgressBar1) {
+        progressBar("Encrypted Complete!", jProgressBar1);
         File file = new File(filePath);
         try {
 

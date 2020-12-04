@@ -48,8 +48,8 @@ public class tablaM extends javax.swing.JFrame {
         initComponents();
         
         runConfig();
-        tableController tableController = new tableController( tablecontent6);
-        tableController.loadAllTable();
+        tableController tableController = new tableController();
+        tableController.loadAllTable(this.tablecontent6);
         
     }
 
@@ -90,38 +90,38 @@ typeCbx.setRenderer(new Colorir<String>());
 //jLabel8.setText(String.valueOf(typeCbx.getSelectedItem()));
         
         style style = new style();
-        style.buttonStyle(addBtn);
-        style.buttonStyle(resetBtn);
+        style.buttonStyle(this.addBtn);
+        style.buttonStyle(this.resetBtn);
 //        style.buttonStyle(exitBtn);
-        style.buttonStyle(deleteBtn);
-        style.buttonStyle(decryptBtn);
-        style.buttonStyle(cryptBtn);
-        style.buttonStyle(selectBtn);
-        style.buttonStyle(copyTextBtn);
-        style.buttonStyle(randomPassBtn);
+        style.buttonStyle(this.deleteBtn);
+        style.buttonStyle(this.decryptBtn);
+        style.buttonStyle(this.cryptBtn);
+        style.buttonStyle(this.selectBtn);
+        style.buttonStyle(this.copyTextBtn);
+        style.buttonStyle(this.randomPassBtn);
 
 //        style.tableSetting(tablecontent, jScrollPane1);
 //        style.tableSetting(tablecontent3, jScrollPane3);
 //        style.tableSetting(tablecontent4, jScrollPane4);
 //        style.tableSetting(tablecontent5, jScrollPane5);
-        style.tableSetting(tablecontent6, jScrollPane6);
+        style.tableSetting(this.tablecontent6, this.jScrollPane6);
 
-        style.JtextBorder(nameBox);
-        style.JtextBorder(fileNameBox);
-        style.JtextBorder(passwordBox);
+        style.JtextBorder(this.nameBox);
+        style.JtextBorder(this.fileNameBox);
+        style.JtextBorder(this.passwordBox);
 
-        style.progressBarStyle(jProgressBar1);
+        style.progressBarStyle(this.jProgressBar1);
 
-        deleteSelectRowBtn.setOpaque(true);
-        deleteSelectRowBtn.setBackground(new java.awt.Color(24, 25, 29));
-        jPopupMenu1.setBorder(BorderFactory.createLineBorder(Color.white));
-        extraTools.setBorder(BorderFactory.createLineBorder(Color.white));
-        trueCryptBtn.setOpaque(true);
-        trueCryptBtn.setBackground(new java.awt.Color(24, 25, 29));
-        copyTXTBtn.setOpaque(true);
-        copyTXTBtn.setBackground(new java.awt.Color(24, 25, 29));
-        takeSSBtn.setOpaque(true);
-        takeSSBtn.setBackground(new java.awt.Color(24, 25, 29));
+        this.deleteSelectRowBtn.setOpaque(true);
+        this.deleteSelectRowBtn.setBackground(new java.awt.Color(24, 25, 29));
+        this.jPopupMenu1.setBorder(BorderFactory.createLineBorder(Color.white));
+        this.extraTools.setBorder(BorderFactory.createLineBorder(Color.white));
+        this.trueCryptBtn.setOpaque(true);
+        this.trueCryptBtn.setBackground(new java.awt.Color(24, 25, 29));
+        this.copyTXTBtn.setOpaque(true);
+        this.copyTXTBtn.setBackground(new java.awt.Color(24, 25, 29));
+        this.takeSSBtn.setOpaque(true);
+        this.takeSSBtn.setBackground(new java.awt.Color(24, 25, 29));
 
 //        jScrollPane3.setVisible(false);
 //        jScrollPane4.setVisible(false);
@@ -142,90 +142,9 @@ typeCbx.setRenderer(new Colorir<String>());
         passwordBox.setText("Encrypted Text...");
         fileNameBox.setText("");
         textArea.setText("");
-        length.setText("Length: 0 ");
-        typeCbx.setSelectedIndex(0);
+        this.length.setText("Length: 0 ");
+        this.typeCbx.setSelectedIndex(0);
     }
-
-//    public void deleteRow() {
-//        if (jScrollPane1.isVisible() == true) {
-//            model = (DefaultTableModel) tablecontent.getModel();
-//            do {
-//                ((DefaultTableModel) tablecontent.getModel()).removeRow(tablecontent.getSelectedRows()[0]);
-//            } while (tablecontent.getSelectedRowCount() > 0);
-//        } else if (jScrollPane3.isVisible() == true) {
-//            model = (DefaultTableModel) tablecontent3.getModel();
-//            do {
-//                ((DefaultTableModel) tablecontent3.getModel()).removeRow(tablecontent3.getSelectedRows()[0]);
-//            } while (tablecontent3.getSelectedRowCount() > 0);
-//        } else if (jScrollPane4.isVisible() == true) {
-//            model = (DefaultTableModel) tablecontent4.getModel();
-//            do {
-//                ((DefaultTableModel) tablecontent4.getModel()).removeRow(tablecontent4.getSelectedRows()[0]);
-//            } while (tablecontent4.getSelectedRowCount() > 0);
-//        } else if (jScrollPane5.isVisible() == true) {
-//            model = (DefaultTableModel) tablecontent5.getModel();
-//            do {
-//                ((DefaultTableModel) tablecontent5.getModel()).removeRow(tablecontent5.getSelectedRows()[0]);
-//            } while (tablecontent5.getSelectedRowCount() > 0);
-//        } else if (jScrollPane6.isVisible() == true) {
-//            model = (DefaultTableModel) tablecontent6.getModel();
-//            do {
-//                ((DefaultTableModel) tablecontent6.getModel()).removeRow(tablecontent6.getSelectedRows()[0]);
-//            } while (tablecontent6.getSelectedRowCount() > 0);
-//        }
-//
-//    }
-
-//    public void deleteRowQuestion() {
-//        String value = "";
-//        if (tablecontent.getSelectedRowCount() >= 2 || tablecontent3.getSelectedRowCount() >= 2 || tablecontent4.getSelectedRowCount() >= 2
-//                || tablecontent5.getSelectedRowCount() >= 2 || tablecontent6.getSelectedRowCount() >= 2) {
-//            int choice = JOptionPane.showOptionDialog(null,
-//                    "Delete selected items?",
-//                    "Delete?",
-//                    JOptionPane.YES_NO_OPTION,
-//                    JOptionPane.QUESTION_MESSAGE,
-//                    null, null, null);
-//
-//            // interpret the user's choice
-//            if (choice == JOptionPane.YES_OPTION) {
-//                deleteRow();
-//
-//            }
-//        } else {
-//
-//            if (jScrollPane1.isVisible() == true) {
-//                model = (DefaultTableModel) tablecontent.getModel();
-//                value = (String.valueOf(model.getDataVector().elementAt(tablecontent.getSelectedRow())));
-//            } else if (jScrollPane3.isVisible() == true) {
-//                model = (DefaultTableModel) tablecontent3.getModel();
-//                value = (String.valueOf(model.getDataVector().elementAt(tablecontent3.getSelectedRow())));
-//            } else if (jScrollPane4.isVisible() == true) {
-//                model = (DefaultTableModel) tablecontent4.getModel();
-//                value = (String.valueOf(model.getDataVector().elementAt(tablecontent4.getSelectedRow())));
-//            } else if (jScrollPane5.isVisible() == true) {
-//                model = (DefaultTableModel) tablecontent5.getModel();
-//                value = (String.valueOf(model.getDataVector().elementAt(tablecontent5.getSelectedRow())));
-//            } else if (jScrollPane6.isVisible() == true) {
-//                model = (DefaultTableModel) tablecontent6.getModel();
-//                value = (String.valueOf(model.getDataVector().elementAt(tablecontent6.getSelectedRow())));
-//            }
-//
-//            int choice = JOptionPane.showOptionDialog(null,
-//                    "Delete: " + value + " ?",
-//                    "Delete?",
-//                    JOptionPane.YES_NO_OPTION,
-//                    JOptionPane.QUESTION_MESSAGE,
-//                    null, null, null);
-//
-//            // interpret the user's choice
-//            if (choice == JOptionPane.YES_OPTION) {
-//                deleteRow();
-//
-//            }
-//        }
-//    }
-
 
 
     /**
@@ -545,9 +464,9 @@ typeCbx.setRenderer(new Colorir<String>());
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("EncrypterTool v3 | 000000000.com");
+        jLabel7.setText("EncrypterTool v4.44");
         jLabel7.setToolTipText("");
-        toolbar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 200, 20));
+        toolbar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 120, 20));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/freebsd_start_here_free_bsd-24.png"))); // NOI18N
         logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -865,7 +784,7 @@ typeCbx.setRenderer(new Colorir<String>());
 
         fileNameBox.setEditable(false);
         fileNameBox.setBackground(new java.awt.Color(0, 0, 0));
-        fileNameBox.setFont(new java.awt.Font("Verdana", 1, 8)); // NOI18N
+        fileNameBox.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         fileNameBox.setForeground(new java.awt.Color(255, 255, 255));
         fileNameBox.setBorder(null);
         fileNameBox.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -967,9 +886,9 @@ typeCbx.setRenderer(new Colorir<String>());
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fileNameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(selectBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(fileNameBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1023,14 +942,14 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void nameBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameBoxFocusLost
         //nameBox.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        if (nameBox.getText().equals("")) {
-            nameBox.setText("Filename...");
+        if (this.nameBox.getText().equals("")) {
+            this.nameBox.setText("Filename...");
         }
     }//GEN-LAST:event_nameBoxFocusLost
 
     private void nameBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameBoxMouseClicked
-        if (nameBox.getText().equals("Filename...")) {
-            nameBox.setText("");
+        if (this.nameBox.getText().equals("Filename...")) {
+            this.nameBox.setText("");
         }
         //nameBox.setBorder(BorderFactory.createLineBorder(new Color(51, 82, 112)));
     }//GEN-LAST:event_nameBoxMouseClicked
@@ -1049,8 +968,8 @@ typeCbx.setRenderer(new Colorir<String>());
     }//GEN-LAST:event_nameBoxMouseExited
 
     private void toolbarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolbarMousePressed
-        x = evt.getX();
-        y = evt.getY();
+        this.x = evt.getX();
+        this.y = evt.getY();
     }//GEN-LAST:event_toolbarMousePressed
 
     private void toolbarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_toolbarMouseDragged
@@ -1058,19 +977,19 @@ typeCbx.setRenderer(new Colorir<String>());
     }//GEN-LAST:event_toolbarMouseDragged
 
     private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
-        jLabel4.setEnabled(false);
+        this.jLabel4.setEnabled(false);
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        jLabel4.setEnabled(true);
+        this.jLabel4.setEnabled(true);
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
-        jLabel3.setEnabled(false);
+        this.jLabel3.setEnabled(false);
     }//GEN-LAST:event_jLabel3MouseMoved
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        jLabel3.setEnabled(true);
+        this.jLabel3.setEnabled(true);
     }//GEN-LAST:event_jLabel3MouseExited
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
@@ -1083,11 +1002,11 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         
-        tableController tableController = new tableController(   tablecontent6,  nameBox,  passwordBox,   jScrollPane6,  jLabel2, jProgressBar1);
-        tableController.createFile();
-        passwordBox.setText("Encrypted Text...");
-        nameBox.setText("Filename...");
-        tableController.saveAllTable();
+        tableController tableController = new tableController();
+        tableController.createFile(this.tablecontent6,  this.nameBox,  this.passwordBox,   this.jScrollPane6,  this.jLabel2, this.jProgressBar1, this.fileNameBox, this.textArea);
+        this.passwordBox.setText("Encrypted Text...");
+        this.nameBox.setText("Filename...");
+        tableController.saveAllTable(this.tablecontent6);
 
     
     }//GEN-LAST:event_addBtnActionPerformed
@@ -1110,27 +1029,28 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void addBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(addBtn);
+        style.buttonStyleON(this.addBtn);
 
     }//GEN-LAST:event_addBtnMouseMoved
 
     private void addBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(addBtn);
+        style.buttonStyleOFF(this.addBtn);
     }//GEN-LAST:event_addBtnMouseExited
 
     private void resetBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(resetBtn);
+        style.buttonStyleON(this.resetBtn);
     }//GEN-LAST:event_resetBtnMouseMoved
 
     private void resetBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(resetBtn);
+        style.buttonStyleOFF(this.resetBtn);
     }//GEN-LAST:event_resetBtnMouseExited
 
     private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
-        resetFilePanel(buttonGroup1, passwordBox, nameBox, fileNameBox, textArea);
+        
+        resetFilePanel(this.buttonGroup1, this.passwordBox, this.nameBox, this.fileNameBox, this.textArea);
    
     }//GEN-LAST:event_resetBtnActionPerformed
 
@@ -1152,19 +1072,19 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void randomPassBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_randomPassBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(randomPassBtn);
+        style.buttonStyleON(this.randomPassBtn);
     }//GEN-LAST:event_randomPassBtnMouseMoved
 
     private void randomPassBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_randomPassBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(randomPassBtn);
+        style.buttonStyleOFF(this.randomPassBtn);
     }//GEN-LAST:event_randomPassBtnMouseExited
 
     private void randomPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomPassBtnActionPerformed
         extraTools extraTools = new extraTools();
-        passwordBox.setText(extraTools.generatePassword(typeCbx.getSelectedItem().toString()));
+        this.passwordBox.setText(extraTools.generatePassword(this.typeCbx.getSelectedItem().toString()));
         
-        length.setText("Length: "+String.valueOf(passwordBox.getText().length()));
+        this.length.setText("Length: "+String.valueOf(this.passwordBox.getText().length()));
         
 
         
@@ -1172,34 +1092,34 @@ typeCbx.setRenderer(new Colorir<String>());
     }//GEN-LAST:event_randomPassBtnActionPerformed
 
     private void selectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtnActionPerformed
-        textConverter textConverter = new textConverter(fileNameBox, jScrollPane6, tablecontent6, textArea, jProgressBar1);
-        textConverter.chooserFile();
+        textConverter textConverter = new textConverter();
+        textConverter.chooserFile(this.fileNameBox, this.jProgressBar1, this.textArea);
     }//GEN-LAST:event_selectBtnActionPerformed
 
     private void selectBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(selectBtn);
+        style.buttonStyleOFF(this.selectBtn);
     }//GEN-LAST:event_selectBtnMouseExited
 
     private void selectBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(selectBtn);
+        style.buttonStyleON(this.selectBtn);
     }//GEN-LAST:event_selectBtnMouseMoved
 
     private void decryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptBtnActionPerformed
-        textConverter textConverter = new textConverter(fileNameBox, jScrollPane6, tablecontent6, textArea, jProgressBar1);
-        textConverter.chooserFilePasswordTable();
+        textConverter textConverter = new textConverter();
+        textConverter.chooserFilePasswordTable(this.fileNameBox, this.jScrollPane6, this.tablecontent6, this.jProgressBar1, this.textArea);
 
     }//GEN-LAST:event_decryptBtnActionPerformed
 
     private void decryptBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decryptBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(decryptBtn);
+        style.buttonStyleOFF(this.decryptBtn);
     }//GEN-LAST:event_decryptBtnMouseExited
 
     private void decryptBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decryptBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(decryptBtn);
+        style.buttonStyleON(this.decryptBtn);
     }//GEN-LAST:event_decryptBtnMouseMoved
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
@@ -1220,46 +1140,46 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void deleteBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(deleteBtn);
+        style.buttonStyleOFF(this.deleteBtn);
     }//GEN-LAST:event_deleteBtnMouseExited
 
     private void deleteBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(deleteBtn);
+        style.buttonStyleON(this.deleteBtn);
     }//GEN-LAST:event_deleteBtnMouseMoved
 
     private void cryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cryptBtnActionPerformed
         //saveChooserFile();
-        textConverter textConverter = new textConverter(fileNameBox, jScrollPane6, tablecontent6, textArea, jProgressBar1);
-        textConverter.saveChooserFile();
+        textConverter textConverter = new textConverter();
+        textConverter.saveChooserFile(this.fileNameBox, this.textArea, this.jProgressBar1);
 
     }//GEN-LAST:event_cryptBtnActionPerformed
 
     private void cryptBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cryptBtnMouseExited
 
         style style = new style();
-        style.buttonStyleOFF(cryptBtn);
+        style.buttonStyleOFF(this.cryptBtn);
     }//GEN-LAST:event_cryptBtnMouseExited
 
     private void cryptBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cryptBtnMouseMoved
         style style = new style();
-        style.buttonStyleON(cryptBtn);
+        style.buttonStyleON(this.cryptBtn);
     }//GEN-LAST:event_cryptBtnMouseMoved
 
     private void copyTextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTextBtnActionPerformed
         extraTools extraTools = new extraTools();
-        extraTools.clipboardFunction(textArea);
+        extraTools.clipboardFunction(this.textArea);
     }//GEN-LAST:event_copyTextBtnActionPerformed
 
     private void copyTextBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copyTextBtnMouseExited
         style style = new style();
-        style.buttonStyleOFF(copyTextBtn);
+        style.buttonStyleOFF(this.copyTextBtn);
     }//GEN-LAST:event_copyTextBtnMouseExited
 
     private void copyTextBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_copyTextBtnMouseMoved
 
         style style = new style();
-        style.buttonStyleON(copyTextBtn);
+        style.buttonStyleON(this.copyTextBtn);
     }//GEN-LAST:event_copyTextBtnMouseMoved
 
     private void passwordBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordBoxKeyPressed
@@ -1271,19 +1191,19 @@ typeCbx.setRenderer(new Colorir<String>());
     }//GEN-LAST:event_passwordBoxMouseExited
 
     private void passwordBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordBoxMouseClicked
-        if (passwordBox.getText().equals("Encrypted Text...")) {
-            passwordBox.setText("");
+        if (this.passwordBox.getText().equals("Encrypted Text...")) {
+            this.passwordBox.setText("");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_passwordBoxMouseClicked
 
     private void passwordBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordBoxFocusLost
-        if (passwordBox.getText().equals("")) {
-            passwordBox.setText("Encrypted Text...");
+        if (this.passwordBox.getText().equals("")) {
+            this.passwordBox.setText("Encrypted Text...");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_passwordBoxFocusLost
 
     private void passwordBoxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordBoxKeyTyped
-     length.setText("Length: "+String.valueOf(1+(passwordBox.getText().length())));
+     this.length.setText("Length: "+String.valueOf(1+(this.passwordBox.getText().length())));
        
     }//GEN-LAST:event_passwordBoxKeyTyped
 
@@ -1302,7 +1222,7 @@ typeCbx.setRenderer(new Colorir<String>());
 
     private void copyTXTBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTXTBtnActionPerformed
         extraTools extraTools = new extraTools();
-        extraTools.clipboardFunction(textArea);
+        extraTools.clipboardFunction(this.textArea);
     }//GEN-LAST:event_copyTXTBtnActionPerformed
 
     private void trueCryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trueCryptBtnActionPerformed
