@@ -35,7 +35,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class tableController extends textConverter {
 
-    public ArrayList<file> lista = new ArrayList();
+    private ArrayList<file> lista = new ArrayList<file>();
 
     public tableController() {
     }
@@ -94,11 +94,11 @@ public class tableController extends textConverter {
        DefaultTableModel model;
        Object contenido[] = new Object[99];
         model = (DefaultTableModel) JTable.getModel();
-        for (int i = 0; i < lista.size(); i++) {
-            contenido[0] = lista.get(i).getName();
+        for (int i = 0; i < this.lista.size(); i++) {
+            contenido[0] = this.lista.get(i).getName();
             contenido[1] = new SimpleDateFormat("yyyy.MM.dd").format(date);
-            contenido[2] = lista.get(i).getType();
-            contenido[3] = lista.get(i).getState();
+            contenido[2] = this.lista.get(i).getType();
+            contenido[3] = this.lista.get(i).getState();
 
             model.addRow(contenido);
         }
@@ -135,7 +135,7 @@ public class tableController extends textConverter {
             type = "AOEC";
             String dir = nameBox.getText() + ".aoec";
             String pass = passwordBox.getText();
-            lista.add(new file(nameBox.getText(), type, dir));
+            this.lista.add(new file(nameBox.getText(), type, dir));
             addTable(tablecontent6);
             textConverter textConverter = new textConverter();
             
