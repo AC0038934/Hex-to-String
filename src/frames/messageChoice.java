@@ -5,7 +5,7 @@
  */
 package frames;
 
-import build.tableController;
+import methods.tableController;
 import javax.swing.BorderFactory;
 
 /**

@@ -5,8 +5,8 @@
  */
 package methods;
 
-import gui.messageBox;
-import gui.tablaM;
+import frames.messageBox;
+import frames.tablaM;
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;

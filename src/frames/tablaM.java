@@ -11,10 +11,10 @@ show and hide password content
  */
 package frames;
 
-import build.style;
-import build.textConverter;
-import build.extraTools;
-import build.tableController;
+import methods.style;
+import methods.textConverter;
+import methods.extraTools;
+import methods.tableController;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;

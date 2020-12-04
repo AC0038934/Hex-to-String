@@ -5,9 +5,9 @@
  */
 package methods;
 
-import build.file;
-import gui.messageBox;
-import gui.tablaM;
+import model.file;
+import frames.messageBox;
+import frames.tablaM;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
