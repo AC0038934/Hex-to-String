@@ -198,7 +198,7 @@
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="27/jun/2019&#xa;+New options to generate key&#xa;-Delete no-implemented crypt options&#xa;-Delete unused tables [tb1,2,3,4,5]&#xa;+Change website&#xa;+Implemented changelog view&#xa;+Add tittle to message windows"/>
+                <Property name="text" type="java.lang.String" value="27/jun/2019&#xa;+New options to generate key&#xa;-Delete no-implemented crypt options&#xa;-Delete unused tables [tb1,2,3,4,5]&#xa;+Change website&#xa;+Implemented changelog view&#xa;+Add tittle to message windows&#xa;&#xa;12/dec/2020&#xa;+Restructure folders&#xa;+Delete unused variables&#xa;+Encapsulation"/>
               </Properties>
             </Component>
           </SubComponents>
