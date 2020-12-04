@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package frames;
 
 import javax.swing.BorderFactory;
 
@@ -11,21 +11,20 @@ import javax.swing.BorderFactory;
  *
  * @author kuro
  */
-public class messageBox extends javax.swing.JFrame {
-private int x,y;
+public class changelog extends javax.swing.JFrame {
+
+    private int x, y;
+
     /**
-     * Creates new form messageBox
+     * Creates new form chanelog
      */
-    public messageBox() {
+    public changelog() {
         initComponents();
-    }
-        public messageBox(String message) {
-        initComponents();
-        
+
         aceptBtn.setContentAreaFilled(false);
         aceptBtn.setOpaque(true);
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, (new java.awt.Color(255, 255, 255))));
-        messageText.setText(message);
+        //messageText.setText(message);
     }
 
     /**
@@ -42,12 +41,15 @@ private int x,y;
         jLabel4 = new javax.swing.JLabel();
         barText = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        messageText = new javax.swing.JLabel();
         aceptBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Message");
+        setTitle("Changelog");
         setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -82,27 +84,21 @@ private int x,y;
                 jLabel4MouseExited(evt);
             }
         });
-        toolbar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, -1, 20));
+        toolbar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 20, 20));
 
         barText.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         barText.setForeground(new java.awt.Color(102, 102, 102));
-        barText.setText("Message");
+        barText.setText("Changelog");
         barText.setToolTipText("");
         toolbar.add(barText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 20));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/freebsd_start_here_free_bsd-24.png"))); // NOI18N
         toolbar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 20));
 
-        messageText.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        messageText.setForeground(new java.awt.Color(255, 255, 255));
-        messageText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        messageText.setText("xxxxxxxxxxxxxxxxxxx");
-        messageText.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         aceptBtn.setBackground(new java.awt.Color(0, 0, 0));
         aceptBtn.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         aceptBtn.setForeground(new java.awt.Color(255, 255, 255));
-        aceptBtn.setText("OK");
+        aceptBtn.setText("Exit");
         aceptBtn.setAutoscrolls(true);
         aceptBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         aceptBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -122,29 +118,42 @@ private int x,y;
             }
         });
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(0, 0, 0));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 51, 51));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("27/jun/2019\n+New options to generate key\n-Delete no-implemented crypt options\n-Delete unused tables [tb1,2,3,4,5]\n+Change website\n+Implemented changelog view\n+Add tittle to message windows");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Version 3.0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(messageText, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+            .addComponent(toolbar, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(aceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                    .addComponent(aceptBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(toolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(messageText)
-                .addGap(18, 18, 18)
-                .addComponent(aceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addComponent(aceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,7 +201,7 @@ private int x,y;
     }//GEN-LAST:event_aceptBtnMouseExited
 
     private void aceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptBtnActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_aceptBtnActionPerformed
 
     /**
@@ -206,26 +215,27 @@ private int x,y;
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(messageBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changelog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(messageBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changelog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(messageBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changelog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(messageBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(changelog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new messageBox().setVisible(true);
+                new changelog().setVisible(true);
             }
         });
     }
@@ -233,10 +243,12 @@ private int x,y;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptBtn;
     private javax.swing.JLabel barText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel messageText;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel toolbar;
     // End of variables declaration//GEN-END:variables
 }

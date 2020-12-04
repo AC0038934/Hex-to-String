@@ -9,7 +9,7 @@ change popup menu background color when its selected
 decrypt text animation (matrix)
 show and hide password content
  */
-package gui;
+package frames;
 
 import build.style;
 import build.textConverter;

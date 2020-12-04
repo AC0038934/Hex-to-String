@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package build;
+package methods;
 
+import build.file;
 import gui.messageBox;
 import gui.tablaM;
 import java.io.BufferedReader;
