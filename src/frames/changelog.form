@@ -198,7 +198,7 @@
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="27/jun/2019&#xa;+New options to generate key&#xa;-Delete no-implemented crypt options&#xa;-Delete unused tables [tb1,2,3,4,5]&#xa;+Change website&#xa;+Implemented changelog view&#xa;+Add tittle to message windows&#xa;&#xa;12/dec/2020&#xa;+Restructure folders&#xa;+Delete unused variables&#xa;+Encapsulation"/>
+                <Property name="text" type="java.lang.String" value="27/jun/2019&#xa;+New options to generate key&#xa;-Delete no-implemented crypt options&#xa;-Delete unused tables [tb1,2,3,4,5]&#xa;+Change website&#xa;+Implemented changelog view&#xa;+Add tittle to message windows&#xa;&#xa;12/dec/2020&#xa;+Restructure folders&#xa;+Delete unused variables&#xa;+Encapsulation&#xa;&#xa;26/may/2021&#xa;+Delete row implemented"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -208,7 +208,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Version 3.0"/>
+            <Property name="text" type="java.lang.String" value="Version 5.55"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -18,6 +18,9 @@ import methods.tableController;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -27,6 +30,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,11 +50,11 @@ public class tablaM extends javax.swing.JFrame {
 
     public tablaM() {
         initComponents();
-        
         runConfig();
+        this.tablecontent6.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tableController tableController = new tableController();
+        tableController.checkInitLoad();
         tableController.loadAllTable(this.tablecontent6);
-        
     }
 
 
@@ -112,16 +116,16 @@ typeCbx.setRenderer(new Colorir<String>());
 
         style.progressBarStyle(this.jProgressBar1);
 
-        this.deleteSelectRowBtn.setOpaque(true);
-        this.deleteSelectRowBtn.setBackground(new java.awt.Color(24, 25, 29));
-        this.jPopupMenu1.setBorder(BorderFactory.createLineBorder(Color.white));
-        this.extraTools.setBorder(BorderFactory.createLineBorder(Color.white));
-        this.trueCryptBtn.setOpaque(true);
-        this.trueCryptBtn.setBackground(new java.awt.Color(24, 25, 29));
-        this.copyTXTBtn.setOpaque(true);
-        this.copyTXTBtn.setBackground(new java.awt.Color(24, 25, 29));
-        this.takeSSBtn.setOpaque(true);
-        this.takeSSBtn.setBackground(new java.awt.Color(24, 25, 29));
+        //this.deleteSelectRowBtn.setOpaque(true);
+        //this.deleteSelectRowBtn.setBackground(new java.awt.Color(24, 25, 29));
+        //this.jPopupMenu1.setBorder(BorderFactory.createLineBorder(Color.white));
+        //this.extraTools.setBorder(BorderFactory.createLineBorder(Color.white));
+        //this.trueCryptBtn.setOpaque(true);
+        //this.trueCryptBtn.setBackground(new java.awt.Color(24, 25, 29));
+        //this.copyTXTBtn.setOpaque(true);
+        //this.copyTXTBtn.setBackground(new java.awt.Color(24, 25, 29));
+        //this.takeSSBtn.setOpaque(true);
+        //this.takeSSBtn.setBackground(new java.awt.Color(24, 25, 29));
 
 //        jScrollPane3.setVisible(false);
 //        jScrollPane4.setVisible(false);
@@ -157,12 +161,6 @@ typeCbx.setRenderer(new Colorir<String>());
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        deleteSelectRowBtn = new javax.swing.JMenuItem();
-        extraTools = new javax.swing.JPopupMenu();
-        trueCryptBtn = new javax.swing.JMenuItem();
-        copyTXTBtn = new javax.swing.JMenuItem();
-        takeSSBtn = new javax.swing.JMenuItem();
         mainPanel = new javax.swing.JPanel();
         tablePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -187,7 +185,6 @@ typeCbx.setRenderer(new Colorir<String>());
         length = new javax.swing.JLabel();
         typeCbx = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
         encryptPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
@@ -197,69 +194,7 @@ typeCbx.setRenderer(new Colorir<String>());
         copyTextBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
-        jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
-
-        jPopupMenu1.setBackground(new java.awt.Color(0, 0, 0));
-        jPopupMenu1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        jPopupMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        jPopupMenu1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        deleteSelectRowBtn.setBackground(new java.awt.Color(0, 0, 0));
-        deleteSelectRowBtn.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
-        deleteSelectRowBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteSelectRowBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/test.png"))); // NOI18N
-        deleteSelectRowBtn.setText("Delete select item");
-        deleteSelectRowBtn.setBorder(null);
-        deleteSelectRowBtn.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                deleteSelectRowBtnMouseMoved(evt);
-            }
-        });
-        deleteSelectRowBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                deleteSelectRowBtnMouseExited(evt);
-            }
-        });
-        deleteSelectRowBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteSelectRowBtnActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(deleteSelectRowBtn);
-
-        extraTools.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        extraTools.setForeground(new java.awt.Color(255, 255, 255));
-
-        trueCryptBtn.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
-        trueCryptBtn.setForeground(new java.awt.Color(255, 255, 255));
-        trueCryptBtn.setText("Open TrueCrypt");
-        trueCryptBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trueCryptBtnActionPerformed(evt);
-            }
-        });
-        extraTools.add(trueCryptBtn);
-
-        copyTXTBtn.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
-        copyTXTBtn.setForeground(new java.awt.Color(255, 255, 255));
-        copyTXTBtn.setText("Copy Text");
-        copyTXTBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                copyTXTBtnActionPerformed(evt);
-            }
-        });
-        extraTools.add(copyTXTBtn);
-
-        takeSSBtn.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
-        takeSSBtn.setForeground(new java.awt.Color(255, 255, 255));
-        takeSSBtn.setText("Take Screenshot");
-        takeSSBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                takeSSBtnActionPerformed(evt);
-            }
-        });
-        extraTools.add(takeSSBtn);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("@nefasturri EncrypterTool v2");
@@ -360,7 +295,7 @@ typeCbx.setRenderer(new Colorir<String>());
 
             },
             new String [] {
-                "Name", "Date", "Encryption", "URL"
+                "ID", "Name", "Date", "URL"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -372,7 +307,6 @@ typeCbx.setRenderer(new Colorir<String>());
             }
         });
         tablecontent6.setToolTipText("");
-        tablecontent6.setComponentPopupMenu(jPopupMenu1);
         tablecontent6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tablecontent6.setGridColor(new java.awt.Color(0, 0, 0));
         tablecontent6.setSelectionBackground(new java.awt.Color(0, 0, 0));
@@ -395,12 +329,6 @@ typeCbx.setRenderer(new Colorir<String>());
             }
         });
         jScrollPane6.setViewportView(tablecontent6);
-        if (tablecontent6.getColumnModel().getColumnCount() > 0) {
-            tablecontent6.getColumnModel().getColumn(0).setResizable(false);
-            tablecontent6.getColumnModel().getColumn(1).setResizable(false);
-            tablecontent6.getColumnModel().getColumn(2).setResizable(false);
-            tablecontent6.getColumnModel().getColumn(3).setResizable(false);
-        }
 
         tablePanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 400, 100));
 
@@ -464,7 +392,7 @@ typeCbx.setRenderer(new Colorir<String>());
 
         jLabel7.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("EncrypterTool v4.44");
+        jLabel7.setText("EncrypterTool v5.55");
         jLabel7.setToolTipText("");
         toolbar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 120, 20));
 
@@ -647,10 +575,6 @@ typeCbx.setRenderer(new Colorir<String>());
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("AOEC Encryption");
 
-        jSeparator11.setBackground(new java.awt.Color(24, 25, 29));
-        jSeparator11.setForeground(new java.awt.Color(24, 25, 29));
-        jSeparator11.setToolTipText("WWWWWWWWW");
-
         jLayeredPane1.setLayer(resetBtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(addBtn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(nameBox, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -660,7 +584,6 @@ typeCbx.setRenderer(new Colorir<String>());
         jLayeredPane1.setLayer(length, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(typeCbx, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jSeparator11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -689,10 +612,7 @@ typeCbx.setRenderer(new Colorir<String>());
                             .addComponent(randomPassBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(typeCbx, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,9 +622,7 @@ typeCbx.setRenderer(new Colorir<String>());
                     .addComponent(jLabel1)
                     .addComponent(length, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8))
-                .addGap(4, 4, 4)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(passwordBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -732,7 +650,6 @@ typeCbx.setRenderer(new Colorir<String>());
         textArea.setRows(5);
         textArea.setWrapStyleWord(true);
         textArea.setCaretColor(new java.awt.Color(255, 255, 255));
-        textArea.setComponentPopupMenu(extraTools);
         textArea.setSelectedTextColor(new java.awt.Color(255, 51, 51));
         textArea.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane7.setViewportView(textArea);
@@ -842,10 +759,6 @@ typeCbx.setRenderer(new Colorir<String>());
         jProgressBar1.setBorder(null);
         jProgressBar1.setBorderPainted(false);
 
-        jSeparator9.setBackground(new java.awt.Color(24, 25, 29));
-        jSeparator9.setForeground(new java.awt.Color(24, 25, 29));
-        jSeparator9.setToolTipText("WWWWWWWWW");
-
         jSeparator10.setBackground(new java.awt.Color(24, 25, 29));
         jSeparator10.setForeground(new java.awt.Color(24, 25, 29));
         jSeparator10.setToolTipText("WWWWWWWWW");
@@ -872,9 +785,7 @@ typeCbx.setRenderer(new Colorir<String>());
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(encryptPanelLayout.createSequentialGroup()
-                .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         encryptPanelLayout.setVerticalGroup(
@@ -895,8 +806,7 @@ typeCbx.setRenderer(new Colorir<String>());
                 .addGroup(encryptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(copyTextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cryptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         mainPanel.add(encryptPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 440, 210));
@@ -1123,19 +1033,16 @@ typeCbx.setRenderer(new Colorir<String>());
     }//GEN-LAST:event_decryptBtnMouseMoved
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-//  filestate.setText(String.valueOf(tablecontent6.getValueAt(tablecontent6.getSelectedRow(), tablecontent6.getSelectedRow())));
-//                         if(rowSelected == false){
-//                     model = (DefaultTableModel)tablecontent6.getModel();
-//                     rowSelected = true;
-//                 }
-//                 
-//                 index = tablecontent6.getSelectedRow();
-//                 if(index < model.getRowCount() -1){
-//                     model.moveRow(index, index, index +1);
-//                     tablecontent6.setRowSelectionInterval(index +1, index +1);
-//                     tablecontent6.setSelectionBackground(Color.BLACK);
-//                 }
-    
+tableController tableController = new tableController();
+        try {
+            tableController.deleteRowFromTableFile(String.valueOf(this.tablecontent6.getValueAt(this.tablecontent6.getSelectedRow(), 0)));
+       DefaultTableModel dm = (DefaultTableModel)this.tablecontent6.getModel();
+       dm.getDataVector().removeAllElements();
+        tableController.checkInitLoad();
+        tableController.loadAllTable(this.tablecontent6);
+        } catch (IOException ex) {
+            Logger.getLogger(tablaM.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void deleteBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseExited
@@ -1215,33 +1122,6 @@ typeCbx.setRenderer(new Colorir<String>());
         //jLabel8.setText(String.valueOf(typeCbx.getSelectedItem()));
     }//GEN-LAST:event_typeCbxActionPerformed
 
-    private void takeSSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeSSBtnActionPerformed
-        extraTools extraTools = new extraTools();
-        extraTools.saveScreenshot();
-    }//GEN-LAST:event_takeSSBtnActionPerformed
-
-    private void copyTXTBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTXTBtnActionPerformed
-        extraTools extraTools = new extraTools();
-        extraTools.clipboardFunction(this.textArea);
-    }//GEN-LAST:event_copyTXTBtnActionPerformed
-
-    private void trueCryptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trueCryptBtnActionPerformed
-        extraTools extraTools = new extraTools();
-        extraTools.TrueCrypt();
-    }//GEN-LAST:event_trueCryptBtnActionPerformed
-
-    private void deleteSelectRowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSelectRowBtnActionPerformed
-        //        deleteRowQuestion();
-    }//GEN-LAST:event_deleteSelectRowBtnActionPerformed
-
-    private void deleteSelectRowBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteSelectRowBtnMouseExited
-
-    }//GEN-LAST:event_deleteSelectRowBtnMouseExited
-
-    private void deleteSelectRowBtnMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteSelectRowBtnMouseMoved
-
-    }//GEN-LAST:event_deleteSelectRowBtnMouseMoved
-
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
         changelog changelog = new changelog();
         changelog.setVisible(true);
@@ -1286,14 +1166,11 @@ typeCbx.setRenderer(new Colorir<String>());
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JMenuItem copyTXTBtn;
     private javax.swing.JButton copyTextBtn;
     private javax.swing.JButton cryptBtn;
     private javax.swing.JButton decryptBtn;
     private javax.swing.JButton deleteBtn;
-    private javax.swing.JMenuItem deleteSelectRowBtn;
     private javax.swing.JPanel encryptPanel;
-    private javax.swing.JPopupMenu extraTools;
     private javax.swing.JTextField fileNameBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1303,14 +1180,11 @@ typeCbx.setRenderer(new Colorir<String>());
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel length;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel mainPanel;
@@ -1322,10 +1196,8 @@ typeCbx.setRenderer(new Colorir<String>());
     private javax.swing.JButton selectBtn;
     private javax.swing.JPanel tablePanel;
     private javax.swing.JTable tablecontent6;
-    private javax.swing.JMenuItem takeSSBtn;
     private javax.swing.JTextArea textArea;
     private javax.swing.JPanel toolbar;
-    private javax.swing.JMenuItem trueCryptBtn;
     private javax.swing.JComboBox<String> typeCbx;
     // End of variables declaration//GEN-END:variables
 

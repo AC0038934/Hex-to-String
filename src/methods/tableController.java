@@ -11,13 +11,16 @@ import frames.tablaM;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
@@ -88,18 +91,63 @@ public class tableController extends textConverter {
             Logger.getLogger(tablaM.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void deleteRowFromTableFile(String lineToRemove) throws FileNotFoundException, IOException{
 
+            File inputFile = new File("tb/" + "tb6.uwu");
+            File tempFile = new File("tb/" + "tb6_temp.uwu");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.contains(lineToRemove)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close(); 
+            reader.close(); 
+            
+       FileOutputStream outFile = null;
+
+        try {
+            outFile = new FileOutputStream(inputFile);
+        } finally {
+            outFile.flush();
+            outFile.close();
+            outFile = null;
+            System.gc();
+        }
+
+        inputFile.delete();
+        tempFile.renameTo(inputFile);
+         messageText("Entry deleted succerfully");
+
+    }
+
+    public void checkInitLoad(){
+        
+            File inputFile = new File("tb/" + "tb6.uwu");
+            File tempFile = new File("tb/" + "tb6_temp.uwu");
+            if(tempFile.exists()){
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+            }
+    }
+    
     public void addTable(JTable JTable) {
-        Date date = new Date();
        DefaultTableModel model;
        Object contenido[] = new Object[99];
         model = (DefaultTableModel) JTable.getModel();
-        for (int i = 0; i < lista.size(); i++) {
-            contenido[0] = lista.get(i).getName();
-            contenido[1] = new SimpleDateFormat("yyyy.MM.dd").format(date);
-            contenido[2] = lista.get(i).getType();
-            contenido[3] = lista.get(i).getState();
-
+        for (int i = 0; i < this.lista.size(); i++) {
+            contenido[0] = this.lista.get(i).getId();
+            contenido[1] = this.lista.get(i).getName();
+            contenido[2] = this.lista.get(i).getDate();
+            contenido[3] = this.lista.get(i).getUrl();
+            
             model.addRow(contenido);
         }
         JTable.setModel(model);
@@ -126,25 +174,36 @@ public class tableController extends textConverter {
 
     public void createFile(JTable tablecontent6, JTextField nameBox, JTextField passwordBox, JScrollPane jScrollPane6, JLabel jLabel2, JProgressBar jProgressBar1, JTextField fileNameBox, JTextArea textArea) {
         String waiting = "Waiting";
-        String type = "";
-
+        Date date = new Date();
+        
         if (nameBox.getText().isEmpty() || nameBox.getText().equals("Filename...")) {
             messageText("Filename is empty");
         } else {
 
-            type = "AOEC";
-            String dir = nameBox.getText() + ".aoec";
+            String url = nameBox.getText() + ".aoec";
             String pass = passwordBox.getText();
-            lista.add(new file(nameBox.getText(), type, dir));
+            this.lista.add(new file(this.randomId(), nameBox.getText(), new SimpleDateFormat("yyyy.MM.dd").format(date), url));
             addTable(tablecontent6);
             textConverter textConverter = new textConverter();
             
-            textConverter.saveTextToHex("txt/" + dir, (new StringBuffer(pass)), jProgressBar1);
+            textConverter.saveTextToHex("txt/" + url, (new StringBuffer(pass)), jProgressBar1);
             messageText("Entry added succerfully");
         }
 
         //getLista().clear();
         //filter("");
+    }
+    
+           public String randomId() {
+            //System.out.println(option);
+        String password = "";
+        String key = "ABCDEFGHIJKLMNOPQRSTWXYZabcdefgjijklmnopqwxyz@!#=1234567890";
+        for (int i = 0; i < 5; i++) {
+            char keyreturn = key.charAt((int) (Math.random() * key.length()));
+            password = password + String.valueOf(keyreturn);
+        }
+        return "id~"+password;
+        
     }
 
 }

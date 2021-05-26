@@ -10,26 +10,36 @@ package model;
  * @author kuro
  */
 public class file {
+    private String id;
     private String name;
     private String date;
-    private String type;
-    private String state;
+    private String url;
+    private String encryption;
 
     public file() {
     }
 
-    public file(String name, String type, String state) {
+    public file(String id, String name, String date, String url) {
+        this.id = id;
         this.name = name;
-        this.type = type;
-        this.state = state;
+        this.date = date;
+        this.url = url;
     }
 
-    public String getType() {
-        return type;
+    public String getEncryption() {
+        return encryption;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEncryption(String encryption) {
+        this.encryption = encryption;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
@@ -50,14 +60,15 @@ public class file {
         this.date = date;
     }
 
-    public String getState() {
-        return state;
+    public String getUrl() {
+        return url;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
+    
 
     
     

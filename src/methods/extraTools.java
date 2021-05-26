@@ -52,6 +52,8 @@ public class extraTools {
         }
 
     }
+    
+ 
        public String generatePassword(String option) {
             //System.out.println(option);
         String password = "";
